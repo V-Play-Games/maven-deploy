@@ -9,17 +9,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <project.build.id>maven-deploy</project.build.id>
-    <project.build.description>Parent POM for all my projects needing to be deployed on Maven Central</project.build.description>
+    <project.github.id>V-Play-Games</project.github.id>
   </properties>
 
   <groupId>com.github.v-play-games</groupId>
   <artifactId>maven-deploy</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <name>Maven Deploy Parent Pom</name>
-  <description>${project.build.description}</description>
-  <url>http://github.com/V-Play-Games/${project.build.id}</url>
+  <description>Parent POM for all my projects needing to be deployed on Maven Central</description>
+  <url>http://github.com/${project.github.id}/${project.build.id}</url>
 
   <build>
     <plugins>
@@ -50,6 +50,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.3.1</version>
+        <configuration>
+          <source>${project.java.version}</source>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -107,6 +111,7 @@
 
   <developers>
     <developer>
+      <id>VPG</id>
       <name>Vaibhav Nargwani</name>
       <email>vaibhavnargwani28@gmail.com</email>
       <organization>com.github.v-play-games</organization>
@@ -115,9 +120,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/V-Play-Games/${project.build.id}.git</connection>
-    <developerConnection>scm:git:ssh://github.com:V-Play-Games/${project.build.id}.git</developerConnection>
-    <url>http://github.com/V-Play-Games/${project.build.id}</url>
+    <connection>scm:git:git://github.com/${project.github.id}/${project.build.id}.git</connection>
+    <developerConnection>scm:git:ssh://github.com:${project.github.id}/${project.build.id}.git</developerConnection>
+    <url>http://github.com/${project.github.id}/${project.build.id}</url>
   </scm>
 
   <distributionManagement>
