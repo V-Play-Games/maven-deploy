@@ -129,12 +129,12 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+  <!-- Copy Paste the given lines and replace project_name
+    <url>http://github.com/V-Play-Games/project_name</url>
+    <scm>
+      <connection>scm:git:git://github.com/V-Play-Games/project_name.git</connection>
+      <developerConnection>scm:git:ssh://github.com:V-Play-Games/project_name.git</developerConnection>
+      <url>https://github.com/V-Play-Games/project_name</url>
+    </scm>
+  -->
 </project>
-    <!-- Copy Paste the given lines and replace project_name
-      <url>http://github.com/V-Play-Games/project_name</url>
-      <scm>
-        <connection>scm:git:git://github.com/V-Play-Games/project_name.git</connection>
-        <developerConnection>scm:git:ssh://github.com:V-Play-Games/project_name.git</developerConnection>
-        <url>https://github.com/V-Play-Games/project_name</url>
-      </scm>
-    -->
