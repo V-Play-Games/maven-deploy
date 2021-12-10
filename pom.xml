@@ -3,24 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
   <properties>
     <project.java.version>11</project.java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <project.build.id>maven-deploy</project.build.id>
-    <project.github.id>V-Play-Games</project.github.id>
+    <project.deploy.profile.release>ossrh</project.deploy.profile.release>
+    <project.deploy.profile.snapshot>ossrh</project.deploy.profile.snapshot>
   </properties>
-
   <groupId>com.github.v-play-games</groupId>
   <artifactId>maven-deploy</artifactId>
   <version>1.0.1</version>
   <packaging>pom</packaging>
-
   <name>Maven Deploy Parent Pom</name>
   <description>Parent POM for all my projects needing to be deployed on Maven Central</description>
-  <url>http://github.com/${project.github.id}/${project.build.id}</url>
-
+  <!-- This should be overridden -->
+  <url>http://github.com/V-Play-Games/maven-deploy</url>
   <build>
     <plugins>
       <plugin>
@@ -94,21 +91,19 @@
         <version>1.6.8</version>
         <extensions>true</extensions>
         <configuration>
-          <serverId>ossrh</serverId>
+          <serverId>${project.deploy.profile.release}</serverId>
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
   <licenses>
     <license>
       <name>The Apache License, Version 2.0</name>
       <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
     </license>
   </licenses>
-
   <developers>
     <developer>
       <id>VPG</id>
@@ -118,21 +113,28 @@
       <organizationUrl>https://github.com/V-Play-Games/</organizationUrl>
     </developer>
   </developers>
-
+  <!-- This should be overridden -->
   <scm>
-    <connection>scm:git:git://github.com/${project.github.id}/${project.build.id}.git</connection>
-    <developerConnection>scm:git:ssh://github.com:${project.github.id}/${project.build.id}.git</developerConnection>
-    <url>http://github.com/${project.github.id}/${project.build.id}</url>
+    <connection>scm:git:git://github.com/V-Play-Games/maven-deploy.git</connection>
+    <developerConnection>scm:git:ssh://github.com:V-Play-Games/maven-deploy.git</developerConnection>
+    <url>https://github.com/V-Play-Games/maven-deploy</url>
   </scm>
-
   <distributionManagement>
     <snapshotRepository>
-      <id>snapshot-repo</id>
+      <id>${project.deploy.profile.snapshot}</id>
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
-      <id>maven-central</id>
+      <id>${project.deploy.profile.release}</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
 </project>
+    <!-- Copy Paste the given lines and replace project_name
+      <url>http://github.com/V-Play-Games/project_name</url>
+      <scm>
+        <connection>scm:git:git://github.com/V-Play-Games/project_name.git</connection>
+        <developerConnection>scm:git:ssh://github.com:V-Play-Games/project_name.git</developerConnection>
+        <url>https://github.com/V-Play-Games/project_name</url>
+      </scm>
+    -->
